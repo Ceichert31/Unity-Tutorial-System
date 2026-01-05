@@ -35,7 +35,7 @@ public class InputController : MonoBehaviour
    {
       _inputSystem.Enable();
       _inputSystem.Player.Attack.performed += LmbClick;
-      _inputSystem.Player.Interact.performed += EButton;
+      _inputSystem.Player.Jump.performed += EButton;
       _inputSystem.Player.Crouch.performed += CButton;
    }
 
@@ -43,7 +43,7 @@ public class InputController : MonoBehaviour
    {
       _inputSystem.Disable();
       _inputSystem.Player.Attack.performed -= LmbClick;
-      _inputSystem.Player.Interact.performed -= EButton;
+      _inputSystem.Player.Jump.performed -= EButton;
       _inputSystem.Player.Crouch.performed -= CButton;
    }
 }

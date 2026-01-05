@@ -15,7 +15,12 @@ public class TutorialController : MonoBehaviour
 
     private void Start()
     {
-        AdvanceStep(null, EventArgs.Empty);
+        //Try to get interface
+        if (!tutorialSteps[_currentStep].TryGetComponent(out _currentStepLogic)) return;
+        
+        //Do entry logic
+        _currentStepLogic.EnterStep();
+        _currentStepLogic.OnComplete += AdvanceStep;
     }
 
     /// <summary>
@@ -24,9 +29,9 @@ public class TutorialController : MonoBehaviour
     /// <remarks>
     /// Called by event
     /// </remarks>
-    public void AdvanceStep(object sender, EventArgs args)
+    private void AdvanceStep(object sender, EventArgs args)
     {
-        if (_currentStep > tutorialSteps.Count)
+        if (_currentStep > tutorialSteps.Count - 1)
             return;
         
         //Check current step null, do exit logic 
@@ -34,7 +39,7 @@ public class TutorialController : MonoBehaviour
         
         //Advance to next step
         _currentStep++;
-        if (_currentStep > tutorialSteps.Count)
+        if (_currentStep > tutorialSteps.Count - 1)
             return;
 
         //Try to get interface
