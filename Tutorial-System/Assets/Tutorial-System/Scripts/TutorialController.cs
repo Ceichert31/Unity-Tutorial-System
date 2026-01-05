@@ -17,9 +17,9 @@ public class TutorialController : MonoBehaviour
     /// Calls exit logic for current step and moves to next step
     /// </summary>
     /// <remarks>
-    /// Called by event channel
+    /// Called by event
     /// </remarks>
-    public void AdvanceStep()
+    public void AdvanceStep(object sender, EventArgs args)
     {
         if (_currentStep > tutorialSteps.Count)
             return;
@@ -33,10 +33,10 @@ public class TutorialController : MonoBehaviour
             return;
 
         //Try to get interface
-        if (tutorialSteps[_currentStep].TryGetComponent(out _currentStepLogic))
-        {
-            //Do entry logic
-            _currentStepLogic.EnterStep();
-        }
+        if (!tutorialSteps[_currentStep].TryGetComponent(out _currentStepLogic)) return;
+        
+        //Do entry logic
+        _currentStepLogic.EnterStep();
+        _currentStepLogic.OnComplete += AdvanceStep;
     }
 }

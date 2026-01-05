@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
@@ -19,7 +20,9 @@ namespace Tutorial_System.Scripts
         [SerializeField] private Ease tutorialWindowCloseEase;
     
         public bool IsComplete => _isComplete;
-
+        
+        public EventHandler<EventArgs> OnComplete { get; set; }
+        
         private bool _isComplete;
     
         public void EnterStep()
@@ -36,6 +39,7 @@ namespace Tutorial_System.Scripts
             if (IsComplete) return;
         
             _isComplete = true;
+            OnComplete?.Invoke(this, EventArgs.Empty);
         }
 
         public void ExitStep()

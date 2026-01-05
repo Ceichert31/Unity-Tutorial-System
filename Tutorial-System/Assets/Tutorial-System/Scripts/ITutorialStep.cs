@@ -1,3 +1,5 @@
+using System;
+
 namespace Tutorial_System.Scripts
 {
     /// <summary>
@@ -9,6 +11,8 @@ namespace Tutorial_System.Scripts
         /// If true prevents the tutorial from being played again
         /// </summary>
         public bool IsComplete { get;}
+        
+        public EventHandler<EventArgs> OnComplete { get; set; }
     
         /// <summary>
         /// Entry logic for this tutorial step
