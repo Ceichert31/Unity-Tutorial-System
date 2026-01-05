@@ -1,2 +1,5 @@
-# Unity-Tutorial-System
-A modular tutorial system for unity
+# A Modular Tutorial System
+A modular tutorial system for Unity 6 that allows lots of customization.
+
+Dependencies: 
+DOTween
