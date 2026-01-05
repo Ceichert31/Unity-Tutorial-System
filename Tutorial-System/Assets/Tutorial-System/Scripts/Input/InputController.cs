@@ -5,7 +5,9 @@ using UnityEngine.InputSystem;
 
 public class InputController : MonoBehaviour
 {
-   [SerializeField] private VoidEventChannel tutorialCheckChannel;
+   [SerializeField] private VoidEventChannel lmbTutorialCheck;
+   [SerializeField] private VoidEventChannel eTutorialCheck;
+   [SerializeField] private VoidEventChannel cTutorialCheck;
    
    private InputSystem_Actions _inputSystem;
    
@@ -16,18 +18,32 @@ public class InputController : MonoBehaviour
 
    private void LmbClick(InputAction.CallbackContext ctx)
    {
-      tutorialCheckChannel.CallEvent();
+      lmbTutorialCheck.CallEvent();
+   }
+
+   private void EButton(InputAction.CallbackContext ctx)
+   {
+      eTutorialCheck.CallEvent();
+   }
+   
+   private void CButton(InputAction.CallbackContext ctx)
+   {
+      cTutorialCheck.CallEvent();
    }
 
    void OnEnable()
    {
       _inputSystem.Enable();
       _inputSystem.Player.Attack.performed += LmbClick;
+      _inputSystem.Player.Interact.performed += EButton;
+      _inputSystem.Player.Crouch.performed += CButton;
    }
 
    void OnDisable()
    {
       _inputSystem.Disable();
       _inputSystem.Player.Attack.performed -= LmbClick;
+      _inputSystem.Player.Interact.performed -= EButton;
+      _inputSystem.Player.Crouch.performed -= CButton;
    }
 }

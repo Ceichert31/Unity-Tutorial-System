@@ -385,6 +385,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1072392554}
     m_Modifications:
+    - target: {fileID: 2150020907734412412, guid: 1e0e502556f5817428f5013b83dabde9, type: 3}
+      propertyPath: m_text
+      value: Press E to continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542914157327791756, guid: 1e0e502556f5817428f5013b83dabde9, type: 3}
+      propertyPath: eventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: d69f98688be5334468c9bbe82385bf10, type: 2}
+    - target: {fileID: 2876418253871963252, guid: 1e0e502556f5817428f5013b83dabde9, type: 3}
+      propertyPath: m_text
+      value: Modular Tutorial System Part 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3140342999157787624, guid: 1e0e502556f5817428f5013b83dabde9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -492,6 +504,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1072392554}
     m_Modifications:
+    - target: {fileID: 2150020907734412412, guid: 1e0e502556f5817428f5013b83dabde9, type: 3}
+      propertyPath: m_text
+      value: Press C to continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542914157327791756, guid: 1e0e502556f5817428f5013b83dabde9, type: 3}
+      propertyPath: eventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 359107b29968abb4c81e5338e635d37e, type: 2}
+    - target: {fileID: 2876418253871963252, guid: 1e0e502556f5817428f5013b83dabde9, type: 3}
+      propertyPath: m_text
+      value: Modular Tutorial System Part 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3140342999157787624, guid: 1e0e502556f5817428f5013b83dabde9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -884,7 +908,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2cc38e366b17c1479246a32dfb15338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialCheckChannel: {fileID: 0}
+  lmbTutorialCheck: {fileID: 11400000, guid: bdb238c496921344782d30377badb206, type: 2}
+  eTutorialCheck: {fileID: 11400000, guid: d69f98688be5334468c9bbe82385bf10, type: 2}
+  cTutorialCheck: {fileID: 11400000, guid: 359107b29968abb4c81e5338e635d37e, type: 2}
 --- !u!1 &1789383780 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6819598237863293934, guid: 1e0e502556f5817428f5013b83dabde9, type: 3}
@@ -903,6 +929,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1072392554}
     m_Modifications:
+    - target: {fileID: 2876418253871963252, guid: 1e0e502556f5817428f5013b83dabde9, type: 3}
+      propertyPath: m_text
+      value: Modular Tutorial System Part 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3140342999157787624, guid: 1e0e502556f5817428f5013b83dabde9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
