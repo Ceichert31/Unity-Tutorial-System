@@ -21,10 +21,22 @@ public class TutorialController : MonoBehaviour
     /// </remarks>
     public void AdvanceStep()
     {
+        if (_currentStep > tutorialSteps.Count)
+            return;
+        
         //Check current step null, do exit logic 
         _currentStepLogic?.ExitStep();
         
         //Advance to next step
-        //Do entry logic
+        _currentStep++;
+        if (_currentStep > tutorialSteps.Count)
+            return;
+
+        //Try to get interface
+        if (tutorialSteps[_currentStep].TryGetComponent(out _currentStepLogic))
+        {
+            //Do entry logic
+            _currentStepLogic.EnterStep();
+        }
     }
 }
