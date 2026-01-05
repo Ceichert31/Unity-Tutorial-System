@@ -12,7 +12,12 @@ public class TutorialController : MonoBehaviour
     private int _currentStep = 0;
 
     private ITutorialStep _currentStepLogic;
-    
+
+    private void Start()
+    {
+        AdvanceStep(null, EventArgs.Empty);
+    }
+
     /// <summary>
     /// Calls exit logic for current step and moves to next step
     /// </summary>
