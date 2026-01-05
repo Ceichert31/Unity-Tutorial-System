@@ -38,6 +38,9 @@ namespace Tutorial_System.Scripts
         {
             if (IsComplete) return;
         
+            //If y scale is 0, that means it is minimized and we shouldn't do anything
+            if (transform.localScale.y == 0) return;
+            
             _isComplete = true;
             OnComplete?.Invoke(this, EventArgs.Empty);
         }
