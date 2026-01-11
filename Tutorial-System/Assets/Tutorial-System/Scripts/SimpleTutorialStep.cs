@@ -6,6 +6,10 @@ namespace Tutorial_System.Scripts
 {
     public class SimpleTutorialStep : MonoBehaviour, ITutorialStep
     {
+        [Header("Display Settings")]
+        [Tooltip("How long of a delay there should be before opening the next tutorial")]
+        [SerializeField] private float timeBeforeOpen;
+
         [Header("Animation Settings")]
         [Tooltip("The speed at which the tutorial window opens")]
         [SerializeField] private float tutorialWindowOpenSpeed;
@@ -18,11 +22,17 @@ namespace Tutorial_System.Scripts
     
         [Tooltip("The easing function used when closing the tutorial window")]
         [SerializeField] private Ease tutorialWindowCloseEase;
-    
+
         public bool IsComplete => _isComplete;
         
         public EventHandler<EventArgs> OnComplete { get; set; }
-        
+
+        [Tooltip("Determines whether completing this tutorial step will advance to the next step")]
+        public bool CanAdvanceTutorial { get => _canAdvanceTutorial; set => _canAdvanceTutorial = value; }
+
+        [SerializeField]
+        private bool _canAdvanceTutorial;
+
         private bool _isComplete;
     
         public void EnterStep()

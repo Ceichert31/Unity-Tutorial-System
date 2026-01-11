@@ -11,6 +11,11 @@ namespace Tutorial_System.Scripts
         /// If true prevents the tutorial from being played again
         /// </summary>
         public bool IsComplete { get;}
+
+        /// <summary>
+        /// If true the next tutorial plays right after
+        /// </summary>
+        public bool CanAdvanceTutorial { get; set; }
         
         public EventHandler<EventArgs> OnComplete { get; set; }
     

@@ -33,10 +33,20 @@ public class TutorialController : MonoBehaviour
     {
         if (_currentStep > tutorialSteps.Count - 1)
             return;
-        
-        //Check current step null, do exit logic 
-        _currentStepLogic?.ExitStep();
-        
+
+        if (_currentStepLogic != null)
+        {
+            //Check current step null, do exit logic 
+            _currentStepLogic.ExitStep();
+
+            //Return if step is marked as not advanceable
+            if (!_currentStepLogic.CanAdvanceTutorial)
+            {
+                _currentStepLogic.CanAdvanceTutorial = true;
+                return;
+            }
+        }
+
         //Advance to next step
         _currentStep++;
         if (_currentStep > tutorialSteps.Count - 1)
