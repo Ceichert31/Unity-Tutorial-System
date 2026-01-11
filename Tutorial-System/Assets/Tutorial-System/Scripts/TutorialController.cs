@@ -59,4 +59,15 @@ public class TutorialController : MonoBehaviour
         _currentStepLogic.EnterStep();
         _currentStepLogic.OnComplete += AdvanceStep;
     }
+
+    /// <summary>
+    /// Loads the next tutorial step manually
+    /// </summary>
+    /// <remarks>
+    /// This is called by event channels
+    /// </remarks>
+    public void LoadNextTutorial()
+    {
+        AdvanceStep(this, EventArgs.Empty);
+    }
 }
